@@ -1,0 +1,26 @@
+<div class="wrapper-xs" ng-controller="wxApplyRepaymentQueryController">
+  <div class="panel panel-default b-a">
+    <div class="panel-heading">
+      <div class="clearfix">
+        <div class="clear">
+          <div class="h3 m-t-xs m-b-xs">
+            {{customer.name}}
+          </div>
+          <small class="text-muted">查到您有 <span class="text-info font-bold">{{contracts.length}}</span> 个合同号，请选择：</small>
+        </div>
+      </div>
+    </div>
+    <div class="list-group no-radius alt" ng-repeat="contract in contracts">
+      <a class="list-group-item" ng-click="goToDetail(contract.bahthm)">
+        <div  class="thumb pull-left m-r">
+          <button class="btn btn-default btn-rounded btn-icon btn-lg">{{$index+1}}</button>
+        </div>
+        <div class="clear">
+          <p class="text-info text-md">合同号：{{contract.bahthm}}</p>
+          <p class="block text-muted">已还款：{{contract.bayhqs}}期</p>
+          <p class="block text-muted">总期数：{{contract.basqzq}}期</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,104 @@
+<style>
+  .file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 20px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+</style>
+<div ng-controller="wxRepaymentCardModifyDetailsController">
+  <div class="wrapper-sm">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <form name="form" class="form-validation" novalidate>
+      <table class="table  bg-white m-b-xs">
+        <tbody>
+        <tr>
+          <td>客户姓名</td>
+          <td class="text-right">{{data.bakhxm}}</td>
+        </tr>
+        <tr>
+          <td>合同编号</td>
+          <td class="text-right">{{data.bahtbh}}</td>
+        </tr>
+        <tr>
+          <td>手机号码</td>
+          <td class="text-right">{{data.basjhm}}</td>
+        </tr>
+        <tr>
+          <td>月供金额</td>
+          <td class="text-right">{{data.baygje}}元</td>
+        </tr>
+        <tr>
+          <td>融资租赁类型</td>
+          <td class="text-right">{{data.bazllx}}</td>
+        </tr>
+        <tr>
+          <td>银行信息</td>
+          <td class="text-right">{{data.bayhxx}}</td>
+        </tr>
+        <tr>
+          <td>还款卡卡号</td>
+          <td class="text-right">{{data.bayhkh}}</td>
+        </tr>
+        <tr>
+          <td>变更后银行信息:</td>
+          <td class="text-right">
+            <select name="account" class="form-control" ng-model="bank" ng-options="bank.BAHKYH for bank in banks">
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>变更后还款卡卡号:</td>
+          <td class="text-right">
+            <input class="form-control" type="text" placeholder="请输入请输入变更后还款卡卡号" ng-model="modifyData.bankCard" required>
+          </td>
+        </tr>
+        <tr>
+          <td style="height: 116px; width: 132px;"><span class="text-danger">*</span>上传附件</td>
+          <td class="text-right" style="padding-right: 0px; padding-left: 0px;">
+            <input type="file" style="width:100%" class="file" file-model="cardFront">
+            <p class="m-t-sm m-b-none">变更后的银行卡正面照片</p>
+            <span class="text-danger">*</span>请正确上传主贷人本人银行卡信息
+            <button class="btn btn-info m-t-sm" ng-click="uploadFront()" style="margin-top: 0px;">上传</button>
+          </td>
+        </tr>
+        <tr>
+          <td style="height: 116px; width: 81px;"><span class="text-danger">*</span>上传附件</td>
+          <td class="text-right" style="padding-right: 0px; padding-left: 0px;">
+            <input type="file" style="width:100%" class="file" file-model="cardBehind">
+            <p class="m-t-sm m-b-none">变更后的银行卡反面照片</p>
+            <span class="text-danger">*</span>请正确上传主贷人本人银行卡信息
+            <button class="btn btn-info m-t-sm" ng-click="uploadBehind()" style="margin-top: 0px;">上传</button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <button type="submit" class="btn btn-primary w-full" ng-click="submit()" ng-disabled='form.$invalid'>提交申请</button>
+            <p class="m-t text-center">轻触上面的“提交”按钮，即表示你同意<a class="text-info" ng-click="declare()"><b>免责声明</b></a></p>
+          </td>
+        </tr>
+        </tbody>
+      </table>
+    </form>
+  </div>
+</div>

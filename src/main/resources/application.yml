@@ -1,0 +1,5 @@
+spring:
+  profiles:
+    active: dev
+admin:
+  auth: Basic d2VjaGF0OmxlYWR1MjAxNg==

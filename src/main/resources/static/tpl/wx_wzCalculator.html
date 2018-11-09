@@ -1,0 +1,47 @@
+<div class="wrapper-xs" ng-controller="wzApplyCalculator">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <form name="form" class="form-validation" novalidate>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span>车价：</label>
+                    <input type="text" class="form-control" placeholder="请输入车价" ng-model="user.car"  ng-pattern="/^\d+(\.\d+)?$/" required>
+                </div>
+                <div class="form-group">
+                    <label><span class="text-danger">*</span>代码：</label>
+                    <input type="password" class="form-control" placeholder="请输入代码" ng-model="user.code"  inputmode="numeric" ng-pattern="/^\d+(\.\d+)?$/" required>
+                </div>
+                <div class="">
+                    <input type="radio" name = "statement" value="24"  ng-model="term" >二年<br>
+                    <input type="radio" name = "statement" value="36" ng-model="term" >三年<br>
+                </div>
+                <button type="submit" ng-click="submit()" ng-disabled='form.$invalid'>计算</button>
+                <button type="input"  ng-click="clear()">清空</button>
+            </form>
+        </div>
+    </div>
+    <div class="panel panel-warning m-b-sm" >
+        <div class="panel-heading">
+            计算结果
+        </div>
+        <table class="table  bg-white m-b-xs">
+            <tbody>
+            <tr>
+                <td>期数</td>
+                <td class="text-right">{{term}}月</td>
+            </tr>
+            <tr>
+                <td>月供</td>
+                <td class="text-right">{{payment | number:2}}(元)</td>
+            </tr>
+            <tr>
+                <td>利息</td>
+                <td class="text-right">{{interest | number:4}} (厘)</td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+
+</div>
+</div>

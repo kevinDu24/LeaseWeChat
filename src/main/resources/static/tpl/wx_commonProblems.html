@@ -1,0 +1,19 @@
+<div ng-controller="wxCommonProblemsController" >
+
+
+        <div class="wrapper-md" >
+            <accordion close-others="oneAtATime"  class="">
+                <accordion-group  is-open="commonProblem.isOpen"  ng-repeat="commonProblem in commonProblemList">
+                    <accordion-heading>
+                       {{commonProblem.problem}}<i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down':commonProblem.isOpen, 'fa-angle-right': !commonProblem.isOpen}" ></i>
+                    </accordion-heading>
+                    {{commonProblem.answer}}
+                </accordion-group>
+            </accordion>
+
+        </div>
+
+    <div>
+        <button class="m-l btn btn-default" ng-click="preview()" ng-if="showPreview">上一页</button><button ng-click="next()" class="pull-right btn btn-default m-r" ng-if="showNext">下一页</button>
+    </div>
+</div>

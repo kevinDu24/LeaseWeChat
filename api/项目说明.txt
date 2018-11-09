@@ -1,0 +1,42 @@
+1.此项目为"HPL太盟融资租赁"微信公众号后台
+2.项目代码地址：http://116.236.234.246:10182/leadu/LeaseWeChat.git
+3.服务器地址：222.73.56.25  端口: 80   域名:fwh.xftm.com
+
+
+微信公众平台：https://mp.weixin.qq.com/
+账号：wuyu@xftmleasing.com
+密码：xftmfw20170808
+登录不上请联系先锋太盟微信管理员
+appId：wx743de4a4fa762293
+appsecret: 54164220134bbd5b9d872ccd544eea1a
+
+
+微信开发文档：
+https://mp.weixin.qq.com/wiki?t=resource/res_main&id=mp1445241432
+
+
+微信公众平台接口调试工具:
+https://mp.weixin.qq.com/debug/
+在调试工具上获取access_token会把服务器上的冲掉，谨慎使用
+
+
+微信报错:40001（token失效）可以调用该接口刷新服务器token：
+http://fwh.xftm.com/icsoc/userInfo?openid=ol7TYs0hmRiN8sV0sheikEZjJSqA&lang
+
+
+
+微众一审
+http://fwh.xftm.com/#/wx/wzApply?applyCode=SH000
+
+
+实时：
+http://fwh.xftm.com/files/download?path=/var/www/html/log/leasewechat/leasewechat_info.log
+历史：
+http://fwh.xftm.com/files/download?path=/var/www/html/log/leasewechat/20180702.0-leasewechat_info.log
+
+
+
+对外服务:
+中通天鸿客户系统: 微信: 先锋太盟中通天鸿联调群   盈盈
+梦网科技短信平台: 微信: 先锋&梦网短信交流  eric
+

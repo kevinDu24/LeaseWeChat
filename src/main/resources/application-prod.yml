@@ -1,0 +1,132 @@
+logging:
+  level:
+    org.springframework.web: DEBUG
+  file: /var/www/html/log/leasewechat.log
+server:
+  port: 80
+spring:
+  redis:
+    host: fwh.xftm.com
+    port: 6379
+
+  http:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+
+  jpa:
+    database: POSTGRESQL
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+
+  datasource:
+    platform: postgres
+    url: jdbc:postgresql://fwh.xftm.com:5432/postgres
+    username: postgres
+    password: Le@%^%$shadu$
+    driver-class-name: org.postgresql.Driver
+
+#spring:
+#  jpa:
+#    database: oracle
+#    show-sql: true
+#    hibernate:
+#      ddl-auto: update
+#  datasource:
+#    platform: oracle
+#    url: jdbc:oracle:thin:@localhost:1521:XE
+#    username: system
+#    password: oracle
+#    driver-class-name: oracle.jdbc.OracleDriver
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: false
+file:
+  filePath: /images/
+  requestFilePath: http://fwh.xftm.com/files/
+wx:
+  serverUrl: http://fwh.xftm.com
+  contactUs: 先锋太盟融资租赁有限公司;
+    地址：上海市虹口区东大名路588号6楼东（200080）;
+    Add：Room 602, No.588 Dongdaming Road，Hongkou District, Shanghai （200080）;
+    总机：8621-2286 8888;
+    客服热线：400-021-8888;
+    企业QQ：800077625;
+    传真：8621-2286 8880;
+    官方网址：www.xftm.com;
+    Email：joinus@xftmleasing.com;
+  materialRequested: 个人用户所需材料：;
+    1.身份类证明;
+    2.婚姻类证明;
+    3.驾驶证;
+    4.户籍类证明;
+    5.收入类证明;
+    6.资产类证明;
+    7.还款银行卡;
+    备注：婚姻类证明和驾驶类证明可视客户情况免除;;
+    …………………;;
+    企业用户所需材料：;
+    1.申请表;
+    2.经年检的营业执照;
+    3.组织机构代码证;
+    4.税务登记证;
+    5.企业贷款卡;
+    6.企业法定代表人身份证;
+    7.验资报告;
+    8.公司章程;
+    9.最近一期及过去一年经审计的财务报表（包括资产负债表、损益表及现金流量表）;
+    备注：以上材料均需复印并加盖企业公章;
+  subscribeReply: 您好！欢迎来到先锋太盟，;
+    马上开启您的微信先锋融资之旅！;
+    点击链接开始绑定;
+    <a href="http://fwh.xftm.com/#/access/wzBind">立即申请绑定</a>;
+request:
+  serverUrl: http://wx.xftm.com:8089/
+  ccServerUrl: http://36.7.107.89:9980/wechat
+  apiUrl: https://api.weixin.qq.com/
+  tmWeChatUrl: http://wx.xftm.com/
+
+message:
+  userId: JJ2075
+  password: 127628
+  pszMsg: 验证码：xxxxxx，为保障您的账号安全，请勿泄露，有效期5分钟。
+  iMobiCount: 1
+  MsgId: 0
+wz:
+  appType: W
+  bankCardUsage: 4
+  rh:
+    name: CAR_CONTRACT_VER_RH
+    version: v3.1
+  iu:
+    name: CAR_CONTRACT_VER_IU
+    version: v3.1
+  account:
+    name: CAR_CONTRACT_WEBANKACCOUNT_VER
+    version: v4.1
+  sign:
+    name: CONTRACT_VER_FX_CREDIT
+    version: v1.2
+  dk:
+    name: CONTRACT_VER_DK
+    version: v1.0
+  sign_dk:
+    name: CONTRACT_DEDUCT_AUTH_VER
+    version: v1.0
+templateMessage:
+  pushOrder:
+    id: ssVt6Lnbwlx6XhXSXygDAJ-va0IznEYyUyP2PMB2M00
+    url: http://fwh.xftm.com/#/wx/wzApply?applyCode=applyCodeValue&timeStamp=timeStampValue
+  applyResult:
+    id: L6uR8LVuDNqRVJ8ErboMTD3WujaWZoePCi6C71O7BgM
+    url: http://fwh.xftm.com/#/wx/wzResult?applyNum=applyNumValue&uniqueMark=uniqueMarkValue
+  contractSign:
+    id: oE3hSuS2SPD7BAf1jCd5k0ebJNApANiSNSzrNO9aPdE
+    url: http://fwh.xftm.com/#/wx/wzSign?applyNum=applyNumValue
+  repayCardChange:
+    id: ssVt6Lnbwlx6XhXSXygDAJ-va0IznEYyUyP2PMB2M00
+    url: http://fwh.xftm.com/#/wx/wzRepayCardChangeResult?applyNum=applyNumValue

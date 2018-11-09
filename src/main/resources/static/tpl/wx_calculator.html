@@ -1,0 +1,66 @@
+<div ng-controller="wxCalculatorController">
+    <div class="wrapper-xs" >
+        <div class="panel panel-default">
+            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <div class="panel-body">
+                <form name="form" class="form-validation" novalidate>
+                    <div class="form-group" ng-show="sign.carObj">
+                        <label><span class="text-danger">*</span>车辆类别</label>
+                        <select name="" class="form-control" ng-model="carObj" ng-change="carObjChange()" ng-options="x.name for x in carObjList"><!--xx for show-->
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="sign.carType">
+                        <label><span class="text-danger">*</span>车辆类型：</label>
+                        <select name="" class="form-control" ng-model="carType" ng-change="carTypeChange()" ng-options="x.name for x in carTypeList">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="sign.carPrice">
+                        <label><span class="text-danger">*</span>车辆售价：</label>
+                        <input class="form-control" type="number" placeholder="车辆售价" ng-model="carPrice" ng-trim="true" ng-maxLength="10">
+                    </div>
+                    <div class="form-group" ng-show="sign.gpsPrice">
+                        <label><span class="text-danger">*</span>GPS费用：</label>
+                        <input class="form-control" type="number" placeholder="GPS费用" ng-model="gpsPrice" ng-trim="true" ng-maxLength="10">
+                    </div>
+                    <div class="form-group" ng-show="sign.otherPrice" >
+                        <label><span class="text-danger">*</span>保险或其他费用：</label>
+                        <input class="form-control" type="number" placeholder="保险或其他费用" ng-model="otherPrice" ng-trim="true" ng-maxLength="10">
+                    </div>
+                    <div class="form-group" ng-show="sign.product">
+                        <label><span class="text-danger">*</span>融资产品：</label>
+                        <select name="" class="form-control" ng-model="product" ng-change="productChange()" ng-options="x.name for x in productList">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="sign.childProduct">
+                        <label><span class="text-danger">*</span>子类：</label>
+                        <select name="" class="form-control" ng-model="childProduct" ng-change="childProductChange()" ng-options="x.name for x in childProductList">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="sign.deadline">
+                        <label><span class="text-danger">*</span>融资期限：</label>
+                        <select name="" class="form-control" ng-model="deadline" ng-options="x.name for x in deadlineList">
+                        </select>
+                    </div>
+                    <div class="form-group" ng-show="sign.firstPay">
+                        <label><span class="text-danger">*</span>首付比例：</label>
+                        <input class="form-control" type="number" placeholder="{{firstPayPlaceholder}}" ng-trim="true" ng-model="firstPay">
+                    </div>
+                    <div class="form-group" ng-show="sign.deposit">
+                        <label><span class="text-danger">*</span>保证金比例（%）：</label>
+                        <input class="form-control" type="number" placeholder="{{depositPlaceholder}}" ng-model="deposit" ng-trim="true" readonly="readonly" >
+                    </div>
+                    <div class="form-group" ng-show="sign.firstPayMoney">
+                        <label><span class="text-danger">*</span>首付款金额：</label>
+                        <input class="form-control" type="number" placeholder="{{firstPayMoneyPlaceholder}}" ng-model="firstPayMoney" ng-trim="true">
+                    </div>
+                    <div class="form-group" ng-show="sign.factorage">
+                        <label><span class="text-danger">*</span>手续费是否分期：</label>
+                        <select name="" class="form-control" ng-model="factorage" ng-options="x.name for x in factorageList">
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-full" ng-click="submit()" ng-disabled='form.$invalid'>提交计算</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

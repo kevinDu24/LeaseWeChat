@@ -1,0 +1,60 @@
+
+<div ng-controller="wxPersonalCreditController">
+  <div class="bg-primary w-full wrapper-xs" style="position:fixed;z-index:9999">
+    <div style="width:176px;margin: 0 auto;">
+      <div class="btn-group" >
+        <a class="btn btn-default btn-rounded b-white " ng-click="gotoPage('wx.personalCredit')" >个人申请</a>
+        <a class="btn btn-primary btn-rounded b-white" ng-click="gotoPage('wx.companyCredit')">企业申请</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrapper-xs" style="padding-top: 55px;">
+
+    <div class="panel panel-default">
+      <div class="panel-heading font-bold">个人申请表单填写</div>
+      <div class="panel-body">
+        <form name="form" class="form-validation" novalidate>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车品牌：</label>
+            <select name="account" class="form-control" ng-model="carBrand" ng-change="optionChange(0)" ng-options="carBrand.name for carBrand in carBrands">
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车车系：</label>
+            <select name="account" class="form-control" ng-model="carSer" ng-options="carSer.name for carSer in carSeries">
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车省份：</label>
+            <select name="account" class="form-control" ng-model="province" ng-change="optionChange(1)" ng-options="province.name for province in provinces">
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车城市：</label>
+            <select name="account" class="form-control" ng-model="city" ng-options="city.name for city in cities">
+            </select>
+          </div>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车人姓名：</label>
+            <input class="form-control" type="text" placeholder="请输入姓名" ng-model="apply.name" ng-maxLength="10" ng-pattern="/^[\u4e00-\u9fa5][\u4e00-\u9fa5·]{0,}$/" required>
+          </div>
+          <div class="form-group">
+            <label><span class="text-danger">*</span>购车人手机号：</label>
+            <input class="form-control" type="number" placeholder="请输入手机号" ng-model="apply.phoneNum" ng-pattern="/^(13|15|17|18)\d{9}$/" required>
+          </div>
+          <div class="form-group">
+            <label>购车人邮箱：</label>
+            <input class="form-control" type="email" placeholder="请输入邮箱" ng-model="apply.email">
+          </div>
+          <div class="form-group">
+            <label>购车人QQ号：</label>
+            <input class="form-control" type="number" placeholder="请输入QQ" ng-model="apply.qq">
+          </div>
+          <button type="submit" class="btn btn-primary w-full" ng-click="submit()" ng-disabled='form.$invalid'>提交</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

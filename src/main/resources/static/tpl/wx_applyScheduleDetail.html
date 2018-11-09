@@ -1,0 +1,21 @@
+<div ng-controller="wxApplyScheduleDetailController">
+  <div class="wrapper-xs">
+    <ul class="timeline" style="width:210px;margin:0 auto;">
+      <li class="tl-header">
+        <div class="btn btn-default">{{data.BASQXM}} <br/>单号：{{data.BASQBH}}</div>
+      </li>
+      <li class="tl-item" ng-repeat="item in data.contractstatelist">
+        <div class="tl-wrap b-success" ng-class="{'b-danger':item.BASQZT=='拒绝'||item.BASQZT=='取消','b-warning':item.BASQZT=='条件通过'}">
+          <span class="tl-date font-bold text-success" ng-class="{'text-danger':item.BASQZT=='拒绝'||item.BASQZT=='取消', 'text-warning':item.BASQZT=='条件通过'}">{{item.BASQZT}}</span>
+          <span class="tl-date m-t-md" ng-if="item.BASQZT=='拒绝' || item.BASQZT=='取消' || item.BASQZT=='条件通过'">{{item.BATHYY}}</span>
+          <div class="tl-content panel padder b-a">
+            <span class="arrow left pull-up"></span>
+            <div>{{convertDate(item.BASHRQ) | date:"medium"}}<br/>
+              审批人：{{item.XTCZRY}}
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

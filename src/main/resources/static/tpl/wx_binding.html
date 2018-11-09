@@ -1,0 +1,25 @@
+<div class="wrapper-xs" ng-controller="weChatBindController">
+  <div class="panel panel-default">
+    <div class="panel-heading font-bold">用户登录表单填写:</div>
+    <div class="panel-body">
+      <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+      <form name="form" class="form-validation" novalidate>
+        <div class="form-group">
+          <label><span class="text-danger">*</span>购车人姓名：</label>
+          <input type="text" class="form-control" placeholder="请输入姓名" ng-model="user.name" ng-disabled="phoneNum!=null" ng-pattern="/^[\u4e00-\u9fa5][\u4e00-\u9fa5·]{0,}$/" required>
+        </div>
+        <div class="form-group">
+          <label><span class="text-danger">*</span>身份证号：</label>
+          <input type="text" class="form-control" placeholder="请输入身份证号" ng-model="user.cardId" ng-disabled="phoneNum!=null" ng-pattern="/(^\d{15}$)|(^\d{18}$)|(^\d{17}(\d|X|x)$)/" required>
+        </div>
+        <label><span class="text-danger">*</span>验证码：</label>
+        <div class="input-group ">
+          <input type="text" placeholder="请获取验证码" class="form-control" ng-model="user.code" ng-pattern="/^[0-9]{4}$/" required>
+          <span class="input-group-addon no-bg no-border " style="padding: 0" role="button" ><button class="btn btn-info btn-sm" ng-click="getSmsCode()"><timer interval="1000" countdown="60" autostart="false" ng-show="startCountdown">{{countdown}}</timer>{{showMsg}}</button> </span>
+        </div>
+        <p class="help-block m-b">验证码将以短信方式发送至您的手机</p>
+        <button type="submit" class="btn btn-primary w-full" ng-click="bind()" ng-disabled='form.$invalid'>登录</button>
+      </form>
+    </div>
+  </div>
+</div>

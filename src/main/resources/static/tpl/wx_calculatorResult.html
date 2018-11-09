@@ -1,0 +1,104 @@
+<div ng-controller="wxCalculatorResultController">
+    <input type="button" class="btn btn-default m-l-sm m-t-sm" onclick="javascript:history.back(-1);" value="< 重新计算">
+    <div class="wrapper-sm">
+        <div class="panel panel-warning m-b-sm" >
+
+            <div class="panel-heading">
+                计算结果
+            </div>
+            <table class="table bg-white m-b-xs">
+                <tbody>
+                <tr>
+                    <td>融资金额</td>
+                    <td class="text-right">{{financeAmount | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>月供金额</td>
+                    <td class="text-right">{{monthPay | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>日供金额</td>
+                    <td class="text-right">{{dayPay | number:2}} 元</td>
+                </tr>
+                <tr ng-show="deposit">
+                    <td>保证金</td>
+                    <td class="text-right">{{deposit | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>首付款金额</td>
+                    <td class="text-right">{{downPayesult | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>利息总额</td>
+                    <td class="text-right">{{totalInterest | number:2}} 元</td>
+                </tr>
+
+                <tr>
+                    <td>年均利息总额</td>
+                    <td class="text-right">{{yearInterest | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>年投资收益</td>
+                    <td class="text-right">{{yearEarnings | number:2}} 元</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="panel panel-warning m-b-sm" >
+            <div class="panel-heading">
+                输入信息
+            </div>
+            <table class="table  bg-white m-b-xs">
+                <tbody>
+                <tr>
+                    <td>车辆类别</td>
+                    <td class="text-right">{{carObjName}}</td>
+                </tr>
+                <tr>
+                    <td>车辆类型</td>
+                    <td class="text-right">{{carTypeName}}</td>
+                </tr>
+                <tr>
+                    <td>车辆售价</td>
+                    <td class="text-right">{{sellingPrice | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>GPS费用</td>
+                    <td class="text-right">{{gpsPrice | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>保险或其他费用</td>
+                    <td class="text-right">{{otherPrice | number:2}} 元</td>
+                </tr>
+                <tr>
+                    <td>融资产品</td>
+                    <td class="text-right">{{financeProductId}}</td>
+                </tr>
+                <tr>
+                    <td>融资期限</td>
+                    <td class="text-right">{{financePeriod}} 月</td>
+                </tr>
+                <tr ng-show="firstPayMoneySign">
+                    <td>首付款金额</td>
+                    <td class="text-right">{{firstPayMoney | number:2}} 元</td>
+                </tr>
+                <tr ng-show="firstPayPlaceholderSign">
+                    <td>首付比例</td>
+                    <td class="text-right">{{firstPayPlaceholder | number:2}} %</td>
+                </tr>
+                <tr ng-show="depositPlaceholderSign">
+                    <td>保证金比例</td>
+                    <td class="text-right">{{depositPlaceholder}} %</td>
+                </tr>
+                <tr ng-show="payModeSign">
+                    <td>是否分期</td>
+                    <td class="text-right">{{payMode}}</td>
+                </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+    </div>
+</div>

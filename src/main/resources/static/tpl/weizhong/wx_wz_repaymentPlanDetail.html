@@ -1,0 +1,31 @@
+<div ng-controller="wxWzRepaymentPlanDetailController">
+  <div class="wrapper-xs">
+    <h3 class="font-bold text-center text-primary">{{contractInfo.BASQXM}}</h3>
+    <p class="text-center">申请编号：{{contractInfo.BASQBH}}，共需还款 {{contractInfo.BASQZQ}} 期。</p>
+    <p class="text-center ">已还款 {{contractInfo.BAYHQS}} 期，<span class="text-danger">逾期 {{contractInfo.BAYQQS}} 期，{{contractInfo.BAYQTS}} 天，{{contractInfo.BAYQLX}} 元</span></p>
+    <div class="panel panel-default">
+      <table class="table table-striped m-b-none">
+        <thead>
+          <tr>
+            <th>收款日</th>
+            <th>本金</th>
+            <th>利息</th>
+            <th>扣款状态</th>
+            <th>罚息</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="item in contractInfo.repayplan">
+            <td>{{item.BAHKRQ}}</td>
+            <!--<td>{{item.BAHKYG}}元</td>-->
+            <td>{{item.BBKHBJ}}元</td>
+            <td>{{item.BBKHLX}}</td>
+            <td class="text-danger">{{item.BAKKZT}}</td>
+            <td>{{item.BAYQLX}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <h4 class="font-bold text-center">还剩{{contractInfo.BASQZQ-contractInfo.BAYHQS}}期未还款</h4>
+    </div>
+  </div>
+</div>

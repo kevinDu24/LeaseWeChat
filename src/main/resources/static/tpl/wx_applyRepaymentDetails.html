@@ -1,0 +1,95 @@
+<div ng-controller="wxApplyRepaymentDetailsController">
+  <div class="wrapper-sm">
+    <div class="text-danger wrapper text-center" ng-show="error">
+      {{error}}
+    </div>
+    <div class="panel panel-warning m-b-sm" >
+      <div class="panel-heading">
+        合同信息
+      </div>
+      <table class="table bg-white m-b-xs">
+        <tbody>
+        <tr>
+          <td>客户姓名</td>
+          <td class="text-right">{{contractInfo.BAKHXM}}</td>
+        </tr>
+        <tr>
+          <td>合同编号</td>
+          <td class="text-right">{{contractInfo.BAHTBH}}</td>
+        </tr>
+        <tr>
+          <td>合同期数</td>
+          <td class="text-right">{{contractInfo.BAHTQS}}期</td>
+        </tr>
+        <tr>
+          <td>月租金额</td>
+          <td class="text-right">{{contractInfo.BAYZJE}}元</td>
+        </tr>
+        <tr>
+          <td>合同起始日期</td>
+          <td class="text-right">{{contractInfo.HTQSRQ}}</td>
+        </tr>
+        <tr>
+          <td>合同结束日期</td>
+          <td class="text-right">{{contractInfo.HTJSRQ}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel panel-warning m-b-sm" >
+      <div class="panel-heading">
+        提前还款金额
+      </div>
+      <table class="table  bg-white m-b-xs">
+
+        <tbody>
+        <tr>
+          <td>提前还款金额</td>
+          <td class="text-right text-danger font-bold">{{repaymentData.tqhkje}}元</td>
+        </tr>
+        <tr>
+          <td>剩余本金</td>
+          <td class="text-right">{{repaymentData.basybj}}元</td>
+        </tr>
+        <tr>
+          <td>当月利息</td>
+          <td class="text-right">{{repaymentData.badylx}}元</td>
+        </tr>
+        <tr>
+          <td>手续费</td>
+          <td class="text-right">{{repaymentData.basxfy}}元</td>
+        </tr>
+        <tr>
+          <td>违约金</td>
+          <td class="text-right">{{repaymentData.bawyjf}}元</td>
+        </tr>
+        <tr>
+          <td>罚息</td>
+          <td class="text-right">{{repaymentData.faxi}}元</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="panel panel-warning m-b-sm" >
+      <table class="table  bg-white m-b-xs">
+        <tbody>
+        <tr>
+          <td>
+            <div class="checkbox">
+              <label class="i-checks">
+                <input type="checkbox" value="" ng-model="agree">
+                <i></i>本人在此确认上述合同提前终止账目单内容无误，本人将于<b class="text-danger">{{repaymentData.ydhkrq}}</b>将<b class="text-danger">人民币 {{repaymentData.tqhkje}}元</b>存入先锋太盟融资租赁公司的账户，以偿还租赁合同项下所有应付款项并提前终止租赁合同。如果因本人原因，未按前述约定时间及金额还款，则此次提前还款作废。
+              </label>
+            </div>
+          </td>
+        </tr>
+        <tr>
+          <td><button type="submit" class="btn btn-primary w-full" ng-click="submit()" ng-disabled="!agree">提交申请</button></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<div class="wrapper-xs" ng-controller="wzSignController">
+    <div class="panel panel-default">
+        <div class="panel-heading font-bold">电子签约信息:</div>
+        <div class="panel-body">
+            <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+            <form name="form" class="form-validation" novalidate>
+                <div class="form-group" style="margin-bottom: 2px" >
+                    <p class="block text-muted" style="margin-bottom: 0px" >借款人姓名：{{applyInfo.name}}</p>
+                </div>
+                <div class="form-group" style="margin-bottom: 2px"  >
+                    <p class="block text-muted" style="margin-bottom: 0px">借款人身份证：{{applyInfo.idCardNum}}</p>
+                </div>
+                <div class="form-group"  style="margin-bottom: 2px" >
+                    <p class="block text-muted" style="margin-bottom: 0px">车辆名称：{{applyInfo.carName}}</p>
+                </div>
+                <div class="form-group" style="margin-bottom: 2px" >
+                    <p class="block text-muted" style="margin-bottom: 0px">贷款发放人：{{applyInfo.grantBank}}</p>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 2px" ng-if = "applyInfo.totalInvestment && applyInfo.totalInvestment != '0.0' && applyInfo.totalInvestment != '0'">
+                    <a ng-click="getTotalInvestment()"><p class="block text-muted" style="margin-bottom: 0px">总贷款金额：{{applyInfo.totalInvestment}} <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down':totalInvestment, 'fa-angle-right': !totalInvestment}" ></i></p></a>
+                </div>
+                <div ng-show = "totalInvestment">
+                    <div class="form-group" style="margin-bottom: 2px; margin-left: 15px;" ng-if = "applyInfo.financeAmount && applyInfo.financeAmount != '0.0' && applyInfo.financeAmount != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px" >汽车购车贷款金额：{{applyInfo.financeAmount == null ? 0 : applyInfo.financeAmount}} </p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px; margin-left: 15px;">
+                        <a ng-click="getCreditFinanceAmount()"><p class="block text-muted" style="margin-bottom: 0px" > 信用消费贷款金额：{{applyInfo.creditFinanceAmount}} <i class="pull-right fa fa-angle-right" ng-class="{'fa-angle-down':creditFinanceAmount, 'fa-angle-right': !creditFinanceAmount}" ></i></p></a>
+                    </div>
+                    <div ng-show = "creditFinanceAmount">
+                    <div class="form-group" style="margin-bottom: 2px; margin-left: 30px;"  ng-if = "applyInfo.purchaseTax && applyInfo.purchaseTax != '0.0' && applyInfo.purchaseTax != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">购置税：{{applyInfo.purchaseTax}}</p>
+                    </div>
+                    <div class="form-group"  style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.retrofittingFee && applyInfo.retrofittingFee != '0.0' && applyInfo.retrofittingFee != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">加装费：{{applyInfo.retrofittingFee == null ? 0 : applyInfo.retrofittingFee}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.extendedWarranty && applyInfo.extendedWarranty != '0.0' && applyInfo.extendedWarranty != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">延保：{{applyInfo.extendedWarranty == null ? 0 : applyInfo.extendedWarranty}}</p>
+                    </div>
+                    <div class="form-group"  style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.gps && applyInfo.gps != '0.0' && applyInfo.gps != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">GPS硬件：{{applyInfo.gps == null ? 0 : applyInfo.gps}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "showCompulsoryInsurance">
+                        <p class="block text-muted" style="margin-bottom: 0px">交强险保费：{{applyInfo.compulsoryInsurance == null ? 0 : applyInfo.compulsoryInsurance}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "showCommercialInsurances">
+                        <p class="block text-muted" style="margin-bottom: 0px">商业险保费：{{applyInfo.commercialInsurance == null ? 0 : applyInfo.commercialInsurance}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "showVehicleTaxes">
+                        <p class="block text-muted" style="margin-bottom: 0px">车船税：{{applyInfo.vehicleTax == null ? 0 : applyInfo.vehicleTax}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.unexpected  && applyInfo.unexpected != '0.0' && applyInfo.unexpected != '0' ">
+                        <p class="block text-muted" style="margin-bottom: 0px">意外保障：{{applyInfo.unexpected == null ? 0 : applyInfo.unexpected}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.xfws && applyInfo.xfws != '0.0' && applyInfo.xfws != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">先锋卫士：{{applyInfo.xfws == null ? 0 : applyInfo.xfws}}</p>
+                    </div>
+                    <div class="form-group" style="margin-bottom: 2px;margin-left: 30px;" ng-if = "applyInfo.otherFee && applyInfo.otherFee != '0.0' && applyInfo.otherFee != '0'">
+                        <p class="block text-muted" style="margin-bottom: 0px">其他费用：{{applyInfo.otherFee == null ? 0 : applyInfo.otherFee}}</p>
+                    </div>
+                    </div>
+                </div>
+                <br>
+                <div class="form-group" style="margin-bottom: 2px" ng-if = "applyInfo.rates && applyInfo.rates != '0.0' && applyInfo.rates != '0'">
+                    <p class="block text-muted" style="margin-bottom: 0px">贷款年利率：{{applyInfo.rates}}</p>
+                </div>
+                <div class="form-group" style="margin-bottom: 2px" ng-if = "applyInfo.financeTerm && applyInfo.financeTerm != '0.0' && applyInfo.financeTerm != '0'">
+                    <p class="block text-muted" style="margin-bottom: 0px">期数：{{applyInfo.financeTerm == null ? 0 : applyInfo.financeTerm}}</p>
+                </div>
+                <div class="form-group" style="margin-bottom: 2px" ng-if = "applyInfo.monthPay && applyInfo.monthPay != '0.0' && applyInfo.monthPay != '0'">
+                    <p class="block text-muted" style="margin-bottom: 0px">月还款额：{{applyInfo.monthPay == null ? 0 : applyInfo.monthPay}}</p>
+                </div>
+                <div class="form-group" style="margin-bottom: 2px">
+                    <a href="http://fwh.xftm.com/#/wx/wzRepaymentPlanDetail/{{applyInfo.applyNum}}"><font color=blue>查看还款计划</font></a>
+                </div>
+                <br>
+                <p class="text-info text-left">申请前请仔细阅读以下协议，并确认:<br>
+                    <input type="checkbox" value="a" ng-checked="all" ng-model = "form.protocol.a"><a ng-click="saveData('c')">《汽车金融借款合同》</a><br>
+                    <input type="checkbox" value="b" ng-checked="form.protocol.c" ng-model = "form.protocol.c"><a ng-click="saveData('d')">《委托扣款协议》</a>
+                </p>
+                <label><span class="text-danger" style="margin-bottom: 0px">*</span>验证码：</label>
+                <div class="input-group ">
+                    <input type="text" placeholder="请获取验证码" class="form-control" ng-model="user.code" ng-pattern="/^[0-9]{6}$/" required>
+                    <span class="input-group-addon no-bg no-border " style="padding: 0" role="button" ><button class="btn btn-info btn-sm" ng-click="getSmsCode()"><timer interval="1000" countdown="60" autostart="false" ng-show="startCountdown">{{countdown}}</timer>{{showMsg}}</button> </span>
+                </div>
+                <p class="help-block m-b">验证码将以短信方式发送至尾号为{{phoneNum}}的手机</p>
+                <button type="submit" class="btn btn-primary w-full" ng-click="submit()" ng-disabled='form.$invalid || user.notShow'>签约</button>
+            </form>
+        </div>
+    </div>
+</div>

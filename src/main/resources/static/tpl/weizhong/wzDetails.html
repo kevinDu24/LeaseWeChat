@@ -1,0 +1,45 @@
+<!--<button class="btn m-b-xs btn-default pull-right m-r-xs" style="margin-top: 10px" ng-click="export()"><i class="glyphicon glyphicon-export"></i>导出联系人</button>-->
+<div class="wrapper-xs" ng-controller="wzDetailsController">
+    <div>
+        <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    </div>
+    <button class="btn m-b-xs btn-default pull-right m-r-xs" ng-click="search()"><i class="glyphicon glyphicon-refresh"></i></button>
+        <div class="table-responsive" style="width:100%; overflow-y:scroll; overflow-x:scroll">
+        <!--<div class="table-responsive">-->
+        <!--<div ng-grid="gridOptions" style="min-height:200px"></div>-->
+        <!--</div>-->
+        <table class="table table-striped m-b-none"  style="font-size:11px">
+            <thead>
+            <tr style="">
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">姓名</th>
+                <th style="font-size:12px;width: 15%; text-align:center; padding-top: 5px; padding-bottom: 5px">身份证号</th>
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">手机号</th>
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">经销商</th>
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">审批状态</th>
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">申请编号</th>
+                <th style="font-size:12px;width: 5%; text-align:center; padding-top: 5px; padding-bottom: 5px">ip</th>
+                <th style="font-size:12px;width: 10%; text-align:center; padding-top: 5px; padding-bottom: 5px">经纬度</th>
+                <th style="font-size:12px;width: 5%; text-align:center; padding-top: 5px; padding-bottom: 5px">网络</th>
+                <th style="font-size:12px;width: 15%; text-align:center; padding-top: 5px; padding-bottom: 5px">提交时间</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in infos">
+                <td style="text-align:center;">{{item.name}}</td>
+                <td style="text-align:center;">{{item.idCard}}</td>
+                <td style="text-align:center;">{{item.phoneNum}}</td>
+                <td style="text-align:center;">{{item.fpName}}</td>
+                <td style="text-align:center;">{{item.status == 3 ? "通过" : "未通过"}}</td>
+                <td style="text-align:center;">{{item.applyNum}}</td>
+                <td style="text-align:center;">{{item.ip}}</td>
+                <td style="text-align:center;">{{item.locationData}}</td>
+                <td style="text-align:center;">{{item.netWortType}}</td>
+                <td style="text-align:center;">{{item.createTime | date:"yyyy-MM-dd HH:mm:ss"}}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="pull-right" style="padding: 2px;padding-right: 20px" >
+        <span>总数：</span><span>{{count}}</span>
+    </div>
+</div>

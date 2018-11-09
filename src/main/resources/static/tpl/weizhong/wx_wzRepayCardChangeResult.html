@@ -1,0 +1,11 @@
+<div class="container w-xxl w-auto-xs" align="center" ng-controller="wzRepayCardChangeResultController">
+    <toaster-container toaster-options="{'position-class': 'toast-top-right', 'close-button':true}"></toaster-container>
+    <h3 class="font-bold text-center text-primary" style="margin-top: 60px;">{{contractInfo.name}}</h3>
+    <p class="text-center">申请编号：{{contractInfo.applyNum}}</p>
+    <p class="text-center ">申请变更银行卡： {{contractInfo.bankCard}} </p>
+    <div id="u11" class="text" align="center"
+         style="margin-left:0px;margin-top:50px;width:280px;height: 60px;font-size: 20px;
+             word-break: break-all;">
+        变更结果:{{contractInfo.message}}
+    </div>
+</div>
